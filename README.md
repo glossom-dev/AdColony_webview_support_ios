@@ -22,19 +22,13 @@ Then the `webView:shouldStartLoadWithRequest:navigationType:` delegate method ne
       return YES;
     }
 
--(BOOL)showAdcolony:(NSURLRequest *)request{
-  if ([ request.URL.scheme isEqualToString:@"adcolony" ]) {
-    [self triggerVideo];
-    return YES;
-  }
-  
-  return NO;
-}
+    -(BOOL)showAdcolony:(NSURLRequest *)request{
+      if ([ request.URL.scheme isEqualToString:@"adcolony" ]) {
+        [AdColony playVideoAdForZone:@"vzf8e4e97704c4445c87504e" withDelegate:nil withV4VCPrePopup:YES andV4VCPostPopup:YES];
+        return YES;
+      }
+      
+      return NO;
+    }
 
-#pragma mark -
-#pragma mark AdColony-specific
-- (IBAction)triggerVideo
-{
-  [AdColony playVideoAdForZone:@"vzf8e4e97704c4445c87504e" withDelegate:nil withV4VCPrePopup:YES andV4VCPostPopup:YES];
-}
 
